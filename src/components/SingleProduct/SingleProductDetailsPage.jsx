@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, fetchSingleProductDetails } from '../../redux/actions';
 import { useParams } from 'react-router-dom';
 import SliderWithThumbnail from './SliderWithThumbnail';
+import { ImCheckboxChecked } from "react-icons/im";
+import FeaturePage from './FeaturePage';
 
 
 const SingleProductDetailsPage = () => {
@@ -38,19 +40,19 @@ const SingleProductDetailsPage = () => {
 
   return (
    
-          <Flex w={'100%'} direction={'column'}>
+          <Flex w={'100%'} direction={'column'}  >
         {
             singleProductDetails && (
-                <Flex w={'100%'} direction={['column','column','row','row']} bg={'yellow'} justifyContent={['center','center','center','center']} alignItems={['center','center','start','start']}>
-                <Flex w={['90%','90%','42%','42%']} bg={'green'}>
+                <Flex w={'100%'} direction={['column','column','row','row']}  justifyContent={['center','center','center','center']} alignItems={['center','center','start','start']}  border={'2px solid #F5F7F7'}>
+                <Flex w={['90%','90%','42%','42%']} pt={'40px'}>
                        <SliderWithThumbnail slideshowArray={slideshowArray} />
                 </Flex>
 
-                <Flex w={['90%','90%','58%','58%']} bg={'red'} direction={'column'} justifyContent={'center'} alignItems={'center'}>
+                <Flex w={['90%','90%','58%','58%']}  direction={'column'} justifyContent={'center'} alignItems={'center'}>
                         <Flex w={'100%'}  direction={'column'} >
                             
-                            <Flex w={'80%'} direction={'column'} p={'20px 15px'} gap={'10px'}>
-                            <Text fontSize={'medium'} fontWeight={'500'} >{productName}                            </Text>
+                            <Flex w={'100%'} direction={'column'} p={'20px 15px'} gap={'10px'}  border={'4px solid #F5F7F7'}>
+                            <Text fontSize={'large'} fontWeight={'500'} >{productName} </Text>
                             
                                 <Flex>
                                    <Text>Add to Compare</Text> 
@@ -62,7 +64,7 @@ const SingleProductDetailsPage = () => {
                         </Flex>
 
                         <Flex w={'100%'} direction={['column','column','row','row']}>
-                            <Flex w={['100%','100%','50%','50%']}  bg={'orange'} direction={'column'}>
+                            <Flex w={['100%','100%','50%','50%']}  direction={'column'} borderLeft={'4px solid #F5F7F7'}>
                                 <Flex p={'20px 15px'} gap={'10px'} direction={'column'}>
                                     <Text fontWeight={'700'} fontSize={'small'}>Gain more with offers (7)</Text>
                                     <Text fontSize={'small'}>7.5% Instant Discount with HSBC Credit Cards Read-T&C </Text>
@@ -149,8 +151,8 @@ const SingleProductDetailsPage = () => {
 
                             </Flex>
 
-                            <Flex w={['100%','100%','50%','50%']} bg={'purple'} direction={'column'} p={'20px'} >
-                                        <Flex bg={'green'} direction={'column'} gap={'10px'}>
+                            <Flex w={['100%','100%','50%','50%']}  direction={'column'} p={'20px'} borderLeft={'2px solid #F5F7F7'}>
+                                        <Flex direction={'column'} gap={'10px'}>
                                                 <Flex>
                                                     <Text fontSize={'medium'}>Offer Price: </Text>
                                                     <Text fontSize={'large'}color={'#003380'}>  {productPrice}</Text>
@@ -185,6 +187,57 @@ const SingleProductDetailsPage = () => {
 
             )
         }
+
+        <Flex w={'100%'} direction={['column','column','row','row']}justifyContent={['center','center','center','center']} alignItems={['center','center','start','start']}>
+
+
+            <Flex w={'71%'} direction={'column'} bg={'white'} padding={'30px'} gap={'15px'}> 
+                <Flex w={'max-content'}>
+                    <Text fontWeight={'500'} fontSize={'x-large'} color={'#4C4C4C'}>Linked Services</Text>
+                </Flex>
+                <Flex w={'100%'} bg={'#F5F7F7'} p={'10px 0px'} alignItems={'center'}>
+                    <Text fontWeight={'700'}>Installation & Protection Service</Text>
+                </Flex>
+                <Flex w={'50%'} direction={'column'} border={'1px solid gray'} padding={'5px 20px'} rounded={'4px'} bg={'#F9F9F9'}>
+                                        <Flex gap={'8px'} >
+                                        <ImCheckboxChecked />
+                                         <Text fontWeight={'700'} fontSize={'small'}>resQ Installation Service for LCD/PDP/RPTV/ Demo(600500071)</Text>
+                                        </Flex>
+                                    <UnorderedList>
+                                        <ListItem>
+                                        <Text  fontSize={'small'}>Installation location feasibility check </Text>
+                                        </ListItem>
+
+                                        <ListItem>
+                                            <Text fontSize={'small'}>Set-up TV connections to Set-top box </Text>
+                                        </ListItem>
+                                        <ListItem>
+                                        <Text fontSize={'small'}>TV demonstration </Text>
+                                        </ListItem>
+
+                                        <Text textDecoration={'underline'} color={'#337AB7'}>Read Benifits</Text>
+                                        <Text>₹0.00</Text>
+                                        
+                                        
+                                    </UnorderedList>
+                                   
+                </Flex>
+            </Flex>
+            
+            <Flex w={'29%'} direction={'column'} bg={'white'} p={'80px 10px'} gap={'15px'}>
+                <Flex direction={'column'} borderBottom={'1px solid gray'} gap={'8px'} fontSize={'small'} fontWeight={'500'} >
+                    <Text>Samsung Crystal 4K Vivid 108 c...<Text as={'span'}color={'white'}>-------</Text>₹32,990.00</Text>
+                    <Text marginBottom={'10px'}>- resQ Installation Service for LC...<Text as={'span'}color={'white'}>------</Text> <Text  color={'#43A047'}as={'span'}>Free</Text></Text>
+                </Flex>
+                <Flex>
+                     <Text><Text color={'#4C4C4C'}fontWeight={'700'}as={'span'}>Amount Payable</Text><Text as={'span'}color={'white'}>--------------------------</Text><Text fontWeight={'700'} as={'span'} color={'#003380'}>₹32,990.00</Text></Text>
+                </Flex>
+            </Flex>
+
+        </Flex>
+
+        <FeaturePage/>
+        
 
           </Flex>
 
