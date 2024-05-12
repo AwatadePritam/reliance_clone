@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.myBox #productName{
+  color: #003380;
+}
+.myBox:hover #productName{
+  color: #E42529 !important;
+}
