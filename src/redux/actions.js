@@ -1,5 +1,9 @@
 import axios from "axios"
-import { ADD_TO_CART, SET_SINGLE_PRODUCT_DATA } from "./actionTypes"
+import { ADD_TO_CART, DELETE_PRODUCT_FROM_CART, LOGOUT, SET_SINGLE_PRODUCT_DATA, SET_TOKEN, UPDATE_FORMDATA } from "./actionTypes"
+
+export const saveToLocalStorage = (key, data ) =>{
+     localStorage.setItem(key,JSON.stringify(data));
+}
 
 export const setSingleProductData = (data) =>{
     return {
@@ -21,8 +25,49 @@ export const fetchSingleProductDetails = (productId) =>{
 }
 
 export const addToCart = (item) =>{
-    
+
     return {
         type:ADD_TO_CART,payload:item
     }
 }
+
+export const updateFormData = (data , keyName) =>{
+        return {
+            type:UPDATE_FORMDATA, payload:data ,keyName:keyName
+        }
+}
+
+export const settoken = (token) =>{
+    return {
+            type:SET_TOKEN, payload:token
+    }
+
+}
+
+export const login = (formDataObject)=>{
+        return async (dispatch) => {
+            axios.post('https://reqres.in/api/login',formDataObject)
+            .then((response)=>{
+                dispatch(settoken(response.data.token))
+                saveToLocalStorage('token' , response.data.token)
+            })
+            .catch((error)=>{
+
+            })
+
+        }
+
+}
+
+export const deleteProductFromCart = (productId) =>{
+    return{
+        type:DELETE_PRODUCT_FROM_CART,payload:productId
+    }
+}
+
+export const logout = () =>{
+     return {
+        type:LOGOUT
+     }
+}
+

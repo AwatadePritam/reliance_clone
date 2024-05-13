@@ -1,13 +1,23 @@
-import { Flex, Image, Menu, Text } from '@chakra-ui/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Button, Flex, Image, Menu, Text } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../Images/logo.png'
 import SearchBar from '../components/SearchBar'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import Menus from './Menus'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../redux/actions'
 
 const NavBar = () => {
+  const token = useSelector((store)=>store.token);
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+
+  useEffect(()=>{
+      navigator('/login')
+  },[token])
+
   return (
     
     <Flex  w={"100%"} bg={'#E42529'} direction={'column'} justifyContent={'center'} alignItems={'center'} >
@@ -32,15 +42,35 @@ const NavBar = () => {
                   <Flex gap={'5px'} color={'white'} justifyContent={'right'} alignItems={'center'} w={'100%'}>
                       <Flex> <Text cursor={'pointer'}  fontSize={'small'}>Select your Pin Code   |</Text></Flex>
 
-                      <Flex gap={'5px'}>
-                        <FaShoppingCart />
+                      <Flex gap={'5px'} >
+                        <Link to={'/cart'} >
+                       <Flex gap={'5px'} >
+                       <FaShoppingCart />
                         <Text cursor={'pointer'} fontSize={'small'}>Cart  |</Text>
+                       </Flex>
+                        </Link>
                         
                       </Flex>
                       <Flex  gap={'5px'}> 
-                      <FaUser />
 
-                        <Text cursor={'pointer'} fontSize={'small'}>Login </Text>
+                       {
+                        !token && (
+                          <Link to={'/login'}>
+                          <Flex gap={'5px'}>
+                          <FaUser />
+                           <Text cursor={'pointer'} fontSize={'small'}>Login </Text>
+                          </Flex>
+                          </Link>
+                        )
+                       }
+
+                       {
+                        token && (
+                          <Button colorScheme={'blue'} onClick={()=>{dispatch(logout())}} >Logout</Button>
+
+                        )
+                       }
+
                       </Flex>
 
                   </Flex>

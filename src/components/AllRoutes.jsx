@@ -5,6 +5,8 @@ import Home from './Home'
 import LayOut from './LayOut'
 import HomePage from './Hompage/HomePage'
 import SingleProductDetailsPage from './SingleProduct/SingleProductDetailsPage'
+import PrivateRoute from './SingleProduct/PrivateRoute'
+import Cart from './SingleProduct/Cart'
 
 const AllRoutes = () => {
   return (
@@ -15,7 +17,7 @@ const AllRoutes = () => {
                 <Route path='/login' element={<Login/>}/>
                 <Route path='/home' element={<Home/>}/>
                 <Route path='/products/:partOne/:partTwo/:url' element={<SingleProductDetailsPage/>} />
-
+                <Route path='/cart' element={<PrivateRoute><Cart/></PrivateRoute>}/>
 
             </Route>
             

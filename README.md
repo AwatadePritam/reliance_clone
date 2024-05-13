@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Reliance Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a clone of the Reliance website created using React. It aims to replicate the functionality and design of the original website with some modifications. The project utilizes various libraries and tools for state management, routing, asynchronous data fetching, and styling.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- **React:** A JavaScript library for building user interfaces.
+- **Redux:** A predictable state container for JavaScript apps.
+- **React Router DOM:** Declarative routing for React.
+- **Redux Thunk:** Middleware for Redux to handle asynchronous actions.
+- **Axios:** Promise-based HTTP client for the browser and Node.js.
+- **Chakra UI:** A simple, modular, and accessible component library for React.
+- **React Icons:** A collection of popular icons as React components.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### State Management with Redux
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Redux is used for advanced state management, allowing efficient handling of application state across components.
 
-### `npm test`
+### Routing with React Router DOM
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React Router DOM is employed for handling navigation within the application, ensuring smooth transitions between different pages.
 
-### `npm run build`
+### Asynchronous Data Fetching with Redux Thunk
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Redux Thunk middleware enables asynchronous actions in Redux, facilitating the fetching of product details from an external API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styling with Chakra UI and React Icons
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Chakra UI provides a set of customizable, accessible components for styling the application, while React Icons offers a wide range of icons as React components.
 
-### `npm run eject`
+## Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Home Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The home page displays a list of products available on the website. Each product card is clickable, leading to the dynamic route of the single product.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Single Product Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This page dynamically fetches and displays the details of a single product when the user clicks on its card from the home page.
 
-## Learn More
+### Cart Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The cart page shows all products added to the user's cart. Users can increase the quantity of each product or remove them from the cart. Access to the cart page is restricted to logged-in users.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Authentication
 
-### Code Splitting
+Users need to log in to access the cart page. If not logged in, they will be redirected to the login page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

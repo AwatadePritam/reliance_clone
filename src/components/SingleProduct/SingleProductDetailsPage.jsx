@@ -1,19 +1,21 @@
 import { Button, Flex, IconButton, Input, ListItem, StatDownArrow, Text, UnorderedList } from '@chakra-ui/react'
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, fetchSingleProductDetails } from '../../redux/actions';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import SliderWithThumbnail from './SliderWithThumbnail';
 import { ImCheckboxChecked } from "react-icons/im";
 import FeaturePage from './FeaturePage';
+import { useToast } from '@chakra-ui/react'
 
 
 const SingleProductDetailsPage = () => {
 
 
     const params = useParams();
+    const [itemAddedToCartFlag,setItemAddedToCartFlag] = useState(false);
     const {url} = params;
     const productId = url;
 
@@ -29,14 +31,34 @@ const SingleProductDetailsPage = () => {
     console.log(slideshowArray)
 
     console.log(productName,'xxx')
+
+    const navigator = useNavigate();
+
     useEffect(()=>{
 
         dispatch(fetchSingleProductDetails(productId));
 
         window.scrollTo(0, 0);
 
-    },[])
 
+        if(itemAddedToCartFlag){
+            navigator('/cart')
+        }
+
+
+    },[itemAddedToCartFlag])
+
+    const toast = useToast()
+
+    const successToast = () =>{
+        toast({
+            title: `Item added to Cart`,
+            status: 'success',
+            isClosable: true,
+          })
+      
+    }
+    
 
   return (
    
@@ -173,7 +195,7 @@ const SingleProductDetailsPage = () => {
 
                                         <Flex w={'100%'} gap={'10px'} p={'20px 0px'}>
                                                 <Button w={'100%'} bg={'#E42529'} color={'white'} _hover={{bg:'#003380'}} cursor={'pointer'}
-                                                onClick={()=>{dispatch(addToCart(singleProductDetails))}}
+                                                onClick={()=>{dispatch(addToCart(singleProductDetails));successToast();setItemAddedToCartFlag(true)}}
                                                 >
                                                     Add to Cart
                                                 </Button>

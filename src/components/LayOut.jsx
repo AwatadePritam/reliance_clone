@@ -3,6 +3,7 @@ import NavBar from '../Navbar/NavBar'
 import { Flex } from '@chakra-ui/react'
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
+import AddToCart from './SingleProduct/Cart'
 
 const LayOut = () => {
   return (

@@ -15,16 +15,45 @@ import {
 const SingleMenu = () => {
   return (
     <Menu>
-  <MenuButton as={Button}rounded={'none'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
-    Actions
+  <MenuButton as={Button}rounded={'none'}   color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    MOBILES & TABLETS
   </MenuButton>
-  <MenuList>
-    <MenuItem>Download</MenuItem>
-    <MenuItem>Create a Copy</MenuItem>
-    <MenuItem>Mark as Draft</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Attend a Workshop</MenuItem>
-  </MenuList>
+
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    TELEVISIONS
+  </MenuButton>
+  
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    AUDIO
+  </MenuButton>
+  
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    HOME APPLIANCES
+  </MenuButton>
+  
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    COMPUTERS
+  </MenuButton>
+  
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    CAMERAS
+  </MenuButton>
+
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    KITCHEN APPLIANCES
+  </MenuButton>
+  
+
+  <MenuButton as={Button}rounded={'none'}  color={'white'} rightIcon={<ChevronDownIcon />} variant={'ghost'} _hover={{bg:'#E42529'}} >
+    ACCESSORIES
+  </MenuButton>
+  
 </Menu>
   )
 }
